@@ -1,3 +1,44 @@
+
+## Setup Instructions
+
+### 1. Custom mobility models
+- `satellite-mobility-model.cc`
+- `satellite-mobility-model.h`
+- `satellite-position-allocator.cc`
+- `satellite-position-allocator.h`
+into `src/mobility/model/`
+
+### 2. Simulation scripts
+
+- `NTN-eNB-on-sats.cc` into the `scratch/` directory.
+
+### 3. Update CMakeLists.txt for mobility module
+
+Edit `src/mobility/CMakeLists.txt`. In the `build_lib` block, add the following entries to `SOURCE_FILES` and `HEADER_FILES` respectively:
+
+**SOURCE_FILES** (add after existing entries):
+model/satellite-mobility-model.cc
+model/satellite-position-allocator.cc
+**HEADER_FILES** (add after existing entries):
+model/satellite-mobility-model.h
+model/satellite-position-allocator.h
+> **Note:** The exact placement should be inside the `build_lib` section, maintaining alphabetical order if required.
+
+### 5. Build NS-3
+
+From the NS-3 root directory (e.g., `ns-3.xx/`), run:
+
+```bash
+./ns3 configure --enable-examples --enable-tests --disable-werror
+./ns3 build
+Verify that the build completes without errors. The new mobility models and the modified LTE module will be compiled into NS-3.
+
+## Running Simulations
+After a successful build, you can execute the example script:
+./ns3 run scratch/NTN-eNB-on-sats
+
+
+
 # The Network Simulator, Version 3
 
 [![codecov](https://codecov.io/gh/nsnam/ns-3-dev-git/branch/master/graph/badge.svg)](https://codecov.io/gh/nsnam/ns-3-dev-git/branch/master/)
