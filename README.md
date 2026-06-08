@@ -1,5 +1,5 @@
 
-## Setup Instructions
+# D2DNTNSimulator-ns3 Setup Instructions
 
 ### 1. Custom mobility models
 - `satellite-mobility-model.cc`
@@ -30,18 +30,24 @@ From the NS-3 root directory (e.g., `ns-3.xx/`), run:
 ```bash
 ./ns3 configure --enable-examples --enable-tests --disable-werror
 ./ns3 build
-```bash
+```
 Verify that the build completes without errors. The new mobility models and the modified LTE module will be compiled into NS-3.
 
 ## Running Simulations
 After a successful build, you can execute the example script:
 ```bash
 ./ns3 run scratch/NTN-eNB-on-sats
-```bash
+```
 
+Purpose
+The custom mobility models implement orbit-based constellation movement.
 
+Troubleshooting
+If the build fails, ensure that the file paths in CMakeLists.txt are correct and that the source/header files exist in src/mobility/model/.
+Run ./ns3 clean and rebuild if you encounter linking issues.
+Check that all required NS-3 modules (e.g., lte, mobility, antenna) are enabled.
 
-## The Network Simulator, Version 3
+# The Network Simulator, Version 3
 
 [![codecov](https://codecov.io/gh/nsnam/ns-3-dev-git/branch/master/graph/badge.svg)](https://codecov.io/gh/nsnam/ns-3-dev-git/branch/master/)
 [![Gitlab CI](https://gitlab.com/nsnam/ns-3-dev/badges/master/pipeline.svg)](https://gitlab.com/nsnam/ns-3-dev/-/pipelines)
