@@ -28,7 +28,6 @@ model/satellite-position-allocator.h
 
 From the NS-3 root directory (e.g., `ns-3.xx/`), run:
 
-```bash
 ./ns3 configure --enable-examples --enable-tests --disable-werror
 ./ns3 build
 Verify that the build completes without errors. The new mobility models and the modified LTE module will be compiled into NS-3.
